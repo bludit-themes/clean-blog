@@ -12,4 +12,4 @@ A clean, Bootstrap blog theme ready to hook into your favorite CMS or blogging p
 - MIT License
 
 ## Screenshot
-![screenshot-clean-blog](https://raw.githubusercontent.com/bludit-themes/clean-blog/master/screenshot.png)
+![screenshot-clean-blog](https://github.com/bludit-themes/clean-blog/raw/master/screenshot.png)
