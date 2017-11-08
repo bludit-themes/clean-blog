@@ -5,8 +5,7 @@ A clean, Bootstrap blog theme ready to hook into your favorite CMS or blogging p
 - Bludit v2.0.x
 
 ## Author
-- HTML5 UP
-- https://html5up.net
+- StartBootStrap
 - https://startbootstrap.com/template-overviews/clean-blog/
 
 ## License
