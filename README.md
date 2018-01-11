@@ -2,9 +2,12 @@
 A clean, Bootstrap blog theme ready to hook into your favorite CMS or blogging platform.
 
 ## Compatible
-- Bludit v2.0.x
+- Bludit v2.x
 
 ## Author
+- Diego
+
+## Base on
 - StartBootStrap
 - https://startbootstrap.com/template-overviews/clean-blog/
 
