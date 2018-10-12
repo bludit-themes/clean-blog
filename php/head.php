@@ -1,25 +1,27 @@
-<?php
-	echo Theme::charset('utf-8');
-	echo Theme::viewport('width=device-width, initial-scale=1, shrink-to-fit=no');
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Bludit CMS">
 
-	// Title and description
-	echo Theme::headTitle();
-	echo Theme::headDescription();
+<!-- Dynamic <title> -->
+<?php echo Theme::metaTags('title') ?>
 
-	// Favicon
-	echo Theme::favicon('img/favicon.png');
+<!-- Dynamic <meta name="description" ...> -->
+<?php echo Theme::metaTags('description') ?>
 
-	// CSS
-	echo Theme::css('vendor/bootstrap/css/bootstrap.min.css');
-	echo Theme::css('css/clean-blog.min.css');
-	echo Theme::css('css/bludit.css');
+<!-- Include Favicon -->
+<?php echo Theme::favicon('img/favicon.png') ?>
 
-	// FontAwesome from Bludit Core
-	echo Theme::fontAwesome();
+<!-- Include Bootstrap CSS file bootstrap.css, this is part of Bludit core -->
+<?php echo Theme::cssBootstrap() ?>
 
-        // Load plugins
-        Theme::plugins('siteHead');
-?>
-
+<!-- Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+<!-- Include CSS Styles from the theme -->
+<?php echo Theme::css('vendor/fontawesome-free/css/all.min.css') ?>
+<?php echo Theme::css('css/clean-blog.min.css') ?>
+<?php echo Theme::css('css/bludit.css') ?>
+
+<!-- Load plugins siteHead -->
+<?php Theme::plugins('siteHead') ?>

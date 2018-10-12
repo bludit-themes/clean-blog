@@ -1,35 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo $language->currentLanguageShortVersion() ?>">
 <head>
-<?php
-  include(THEME_DIR_PHP.'head.php')
-?>
+    <?php include(THEME_DIR_PHP.'head.php') ?>
 </head>
   <body>
 
-    <?php
-        Theme::plugins('siteBodyBegin')
-    ?>
+    <!-- Load plugins siteBodyBegin -->
+    <?php Theme::plugins('siteBodyBegin') ?>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="<?php echo $Site->url() ?>"><?php echo $Site->title() ?></a>
+        <a class="navbar-brand" href="<?php echo $site->url() ?>"><?php echo $site->title() ?></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-	<?php echo $Language->get('Menu') ?>
-          <i class="fa fa-bars"></i>
+            <?php echo $language->get('Menu') ?><i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo $Site->url() ?>"><?php echo $Language->get('Home') ?></a>
-	    </li>
+                <a class="nav-link" href="<?php echo $site->url() ?>"><?php echo $language->get('Home') ?></a>
+            </li>
             <?php
-              foreach ($staticPages as $staticPage) {
-                echo '<li class="nav-item">';
-                echo '<a class="nav-link" href="'.$staticPage->permalink().'">'.$staticPage->title().'</a>';
-                echo '</li>';
-              }
+                foreach ($staticContent as $staticPage) {
+                    echo '<li class="nav-item">';
+                    echo '<a class="nav-link" href="'.$staticPage->permalink().'">'.$staticPage->title().'</a>';
+                    echo '</li>';
+                }
             ?>
           </ul>
         </div>
@@ -38,11 +34,11 @@
 
     <!-- Main Content -->
     <?php
-      if ($WHERE_AM_I=='page') {
-        include(THEME_DIR_PHP.'page.php');
-      } else {
-        include(THEME_DIR_PHP.'home.php');
-      }
+        if ($WHERE_AM_I=='page') {
+            include(THEME_DIR_PHP.'page.php');
+        } else {
+            include(THEME_DIR_PHP.'home.php');
+        }
     ?>
 
     <!-- Footer -->
@@ -51,98 +47,32 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
-            <?php
-            if ($Site->twitter()) {
-              echo '
-              <li class="list-inline-item">
-              <a href="'.$Site->twitter().'">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-              </li>
-              ';
-            }
-            if ($Site->facebook()) {
-              echo '
-              <li class="list-inline-item">
-              <a href="'.$Site->facebook().'">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-              </li>
-              ';
-            }
-            if ($Site->github()) {
-              echo '
-              <li class="list-inline-item">
-              <a href="'.$Site->github().'">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-              </li>
-              ';
-            }
-            if ($Site->codepen()) {
-              echo '
-              <li class="list-inline-item">
-              <a href="'.$Site->codepen().'">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-codepen fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-              </li>
-              ';
-            }
-            if ($Site->instagram()) {
-		echo '
-		<li class="list-inline-item">
-		<a href="'.$Site->instagram().'">
-		  <span class="fa-stack fa-lg">
-		    <i class="fa fa-circle fa-stack-2x"></i>
-		    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-		  </span>
-		</a>
-		</li>
-		';
-	      }
-            if ($Site->linkedin()) {
-              echo '
-              <li class="list-inline-item">
-              <a href="'.$Site->linkedin().'">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-              </li>
-              ';
-            }
-            ?>
+            <?php foreach ($socialNetworks as $key=>$label): ?>
+                <?php if ($site->{$key}()): ?>
+                <li class="list-inline-item">
+                    <a href="<?php echo $site->{$key}() ?>" target="_blank">
+                        <span class="fa-stack fa-lg">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-<?php echo $key ?> fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
             </ul>
-	          <p class="copyright text-muted"><?php echo $Site->footer() ?> - Powered by <a href="https://www.bludit.com">BLUDIT</a></p>
+            <p class="copyright text-muted"><?php echo $site->footer() ?> - Powered by <a href="https://www.bludit.com">BLUDIT</a></p>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- Scripts -->
-    <?php
-      echo Theme::jquery(); // Jquery from Bludit Core
-      echo Theme::js('vendor/popper/popper.min.js');
-      echo Theme::js('vendor/bootstrap/js/bootstrap.min.js');
-      echo Theme::js('js/clean-blog.min.js');
-    ?>
+    <!-- Javascript -->
+    <?php echo Theme::jquery() ?>
+    <?php echo Theme::jsBootstrap(); ?>
+    <?php echo Theme::js('js/clean-blog.min.js') ?>
 
-    <?php
-      Theme::plugins('siteBodyEnd')
-    ?>
+    <!-- Load plugins siteBodyEnd -->
+    <?php Theme::plugins('siteBodyEnd') ?>
 
   </body>
 </html>
