@@ -6,7 +6,7 @@
 				<div class="post-heading">
 					<h1><?php echo $page->title() ?></h1>
 					<h2 class="subheading"><?php echo $page->description() ?></h2>
-					<p class="meta"><?php echo $language->get('Posted by').' '.$page->user('username').' - '.$page->date() ?></p>
+					<p class="meta"><?php echo $language->get('Posted by').' '.$page->user('nickname').' - '.$page->date() ?></p>
 				</div>
 			</div>
 		</div>
