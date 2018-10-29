@@ -25,7 +25,7 @@
 						<h2 class="post-title"><?php echo $page->title() ?></h2>
 						<h3 class="post-subtitle"><?php echo $page->description() ?></h3>
 					</a>
-					<p class="post-meta"><?php echo $language->get('Posted by').' '.$page->user('username').' - '.$page->date() ?></p>
+					<p class="post-meta"><?php echo $language->get('Posted by').' '.$page->user('nickname').' - '.$page->date() ?></p>
 				</div>
 				<hr>
 
