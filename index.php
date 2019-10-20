@@ -52,8 +52,8 @@
                 <li class="list-inline-item">
                     <a href="<?php echo $site->{$key}() ?>" target="_blank">
                         <span class="fa-stack fa-lg">
-                            <i class="fas fa-circle fa-stack-2x"></i>
-                            <i class="fab fa-<?php echo $key ?> fa-stack-1x fa-inverse"></i>
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-<?php echo $key ?>"></i>
                         </span>
                     </a>
                 </li>

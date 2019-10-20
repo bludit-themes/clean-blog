@@ -13,6 +13,9 @@
 	</div>
 </header>
 
+<!-- Load Bludit Plugins: Page Begin -->
+<?php Theme::plugins('pageBegin'); ?>
+
 <!-- Post Content -->
 <article>
 <div class="container">
@@ -23,5 +26,8 @@
 </div>
 </div>
 </article>
+
+<!-- Load Bludit Plugins: Page End -->
+<?php Theme::plugins('pageEnd'); ?>
 
 <hr>
