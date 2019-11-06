@@ -34,12 +34,12 @@
 			<!-- Pager -->
 			<div class="clearfix">
 			<?php
-				if (Paginator::showPrev()) {
-					echo '<a class="btn btn-primary float-left" href="'.Paginator::previousPageUrl().'">&larr; '.$language->get('Previous page').'</a>';
+				if (Paginator::showNext()) {
+					echo '<a class="btn btn-primary float-left" href="'.Paginator::nextPageUrl().'">&larr; '.$language->get('Previous page').'</a>';
 				}
 
-				if (Paginator::showNext()) {
-					echo '<a class="btn btn-primary float-right" href="'.Paginator::nextPageUrl().'">'.$language->get('Next page').' &rarr;</a>';
+				if (Paginator::showPrev()) {
+					echo '<a class="btn btn-primary float-right" href="'.Paginator::previousPageUrl().'">'.$language->get('Next page').' &rarr;</a>';
 				}
 			?>
 			</div>
