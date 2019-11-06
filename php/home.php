@@ -35,7 +35,7 @@
 			<div class="clearfix">
 			<?php
 				if (Paginator::showPrev()) {
-					echo '<a class="btn btn-primary float-left" href="'.Paginator::prevPageUrl().'">&larr; '.$language->get('Previous page').'</a>';
+					echo '<a class="btn btn-primary float-left" href="'.Paginator::previousPageUrl().'">&larr; '.$language->get('Previous page').'</a>';
 				}
 
 				if (Paginator::showNext()) {
